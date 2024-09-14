@@ -7,7 +7,7 @@ import EditForm from "./Components/EditForm/EditForm";
 const App = () => {
   return (
     <div>
-      <BrowserRouter basename="https://valenthy24rg.github.io/contact-us-fullstack/">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={ <ShowForm/> } />
           <Route path="/create" element={ <CreateForm/> } />
