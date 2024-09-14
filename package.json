@@ -16,9 +16,7 @@
     "build": "vite build",
     "dev": "vite --port 3000 --open",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.34",
