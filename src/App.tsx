@@ -9,7 +9,7 @@ const App = () => {
     <div>
       <BrowserRouter basename="/">
         <Routes>
-          <Route path="/contact-us" element={ <ShowForm/> } />
+          <Route path="/" element={ <ShowForm/> } />
           <Route path="/create" element={ <CreateForm/> } />
           <Route path="/edit/:id" element={ <EditForm/> } />
         </Routes>
