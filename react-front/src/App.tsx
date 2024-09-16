@@ -7,7 +7,7 @@ import EditForm from "./Components/EditForm/EditForm";
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={ <ShowForm/> } />
           <Route path="/create" element={ <CreateForm/> } />
