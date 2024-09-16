@@ -10,8 +10,8 @@ const App = () => {
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={ <ShowForm/> } />
-          <Route path="/create" element={ <CreateForm/> } />
-          <Route path="/edit/:id" element={ <EditForm/> } />
+          <Route path="/contact-us/create" element={ <CreateForm/> } />
+          <Route path="/contact-us/edit/:id" element={ <EditForm/> } />
         </Routes>
       </BrowserRouter>
     </div>
