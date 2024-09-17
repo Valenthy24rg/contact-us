@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const FormSection = styled.form`
-  width: 350px;
-  height: 450px;
+  max-width: 350px;
   background-color: #fff;
   padding: 30px;
   border-radius: 15px;

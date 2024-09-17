@@ -26,8 +26,8 @@ export interface FormProperties {
 const URI = 'http://localhost:8000/forms/';
 
 const ShowForm = () => {
-  const [forms, setForm] = useState<FormProperties[]>([])
-
+  const [forms, setForm] = useState<FormProperties[]>([]);
+  
   useEffect(() => {
     getForms()
   },[])
@@ -41,6 +41,8 @@ const ShowForm = () => {
     axios.delete(`${URI}${id}`)
     getForms()
   };
+
+  console.log(forms)
   
   return(
     <Container>
@@ -63,8 +65,8 @@ const ShowForm = () => {
             <StyledTd>{form.name}</StyledTd>
             <StyledTd>{form.email}</StyledTd>
             <StyledTd>{form.phone}</StyledTd>
-            <StyledTd>{form.email_select}</StyledTd>
-            <StyledTd>{form.phone_select}</StyledTd>
+            <StyledTd>{form.email_select ? 'Sí' : 'No'}</StyledTd>
+            <StyledTd>{form.phone_select ? 'Sí' : 'No'}</StyledTd>
             <StyledTd>{form.message}</StyledTd>
             <StyledTd>
               <Icon>

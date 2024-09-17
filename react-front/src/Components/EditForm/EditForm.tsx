@@ -21,8 +21,7 @@ const EditForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [emailSelect, setEmailSelect] = useState(true);
-  const [phoneSelect, setPhoneSelect] = useState(true);
+  const [methodSelect, setMethodSelect] = useState('phone_select');
   const [message, setMessage] = useState('');
   const navigate = useNavigate()
 
@@ -34,8 +33,8 @@ const EditForm = () => {
       name: name,
       email: email,
       phone: phone,
-      email_Select: emailSelect,
-      phone_Select: phoneSelect,
+      email_select: methodSelect === 'email_select',
+      phone_select: methodSelect === 'phone_select',
       message: message
     })
     navigate('/')
@@ -50,8 +49,8 @@ const EditForm = () => {
    setName(res.data.name)
    setEmail(res.data.email)
    setPhone(res.data.phone)
-   setEmailSelect(res.data.emailSelect)
-   setPhoneSelect(res.data.phoneSelect)
+   setMethodSelect('email_select')
+   setMethodSelect('phone_select')
    setMessage(res.data.message)
   }
   
@@ -86,12 +85,11 @@ const EditForm = () => {
 
           <FormControl>
           <RadioButtonInput
-            value="email_select"
+            value={'email_select'}
             type="radio"
             name="contactMethod"
-            placeholder="Email"
-            checked={emailSelect}
-            onChange={(e) => setEmailSelect(e.target.checked)}
+            checked={methodSelect === 'email_select'}
+            onClick={() => setMethodSelect('email_select')}
             >
           </RadioButtonInput>
           <Label htmlFor="email_select">Email</Label>
@@ -99,12 +97,11 @@ const EditForm = () => {
          
           <FormControl>
           <RadioButtonInput
-            value="phone_select"
+            value={'phone_select'}
             type="radio"
             name="contactMethod"
-            placeholder="Email"
-            checked={phoneSelect}
-            onChange={(e) => setPhoneSelect(e.target.checked)}
+            checked={methodSelect === 'phone_select'}
+            onClick={() => setMethodSelect('phone_select')}
             >
           </RadioButtonInput>
           <Label htmlFor="phone_select">Phone</Label>

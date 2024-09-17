@@ -21,15 +21,21 @@ const CreateForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [emailSelect, setEmailSelect] = useState(true);
-  const [phoneSelect, setPhoneSelect] = useState(true);
+  const [methodSelect, setMethodSelect] = useState('email_select');
   const [message, setMessage] = useState('');
 
   const navigate = useNavigate()
 
   const store = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    await axios.post(URI, {name: name, email: email, phone: phone, email_select: emailSelect, phone_Select: phoneSelect, message: message})
+    await axios.post(URI, {
+      name: name,
+      email: email,
+      phone: phone,
+      email_select: methodSelect === 'email_select',
+      phone_select: methodSelect === 'phone_select',
+      message: message
+    })
     navigate('/')
 
   }
@@ -62,12 +68,11 @@ const CreateForm = () => {
 
           <FormControl>
           <RadioButtonInput
-            value="email_select"
+            value={'email_select'}
             type="radio"
             name="contactMethod"
-            placeholder="Email"
-            checked={emailSelect}
-            onChange={(e) => setEmailSelect(e.target.checked)}
+            checked={methodSelect === 'email_select'}
+            onClick={() => setMethodSelect('email_select')}
             >
           </RadioButtonInput>
           <Label htmlFor="email_select">Email</Label>
@@ -75,12 +80,11 @@ const CreateForm = () => {
          
           <FormControl>
           <RadioButtonInput
-            value="phone_select"
+            value={'phone_select'}
             type="radio"
             name="contactMethod"
-            placeholder="Email"
-            checked={phoneSelect}
-            onChange={(e) => setPhoneSelect(e.target.checked)}
+            checked={methodSelect === 'phone_select'}
+            onClick={() => setMethodSelect('phone_select')}
             >
           </RadioButtonInput>
           <Label htmlFor="phone_select">Phone</Label>
